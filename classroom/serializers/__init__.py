@@ -1,0 +1,5 @@
+from .treinamento_serializer import TreinamentoSerializer
+from .turma_serializer import TurmaSerializer
+from .recurso_serializer import RecursoSerializer
+from .aluno_serializer import AlunoSerializer
+from .matricula_serializer import MatriculaSerializer
