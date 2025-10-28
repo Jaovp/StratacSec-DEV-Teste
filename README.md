@@ -1,0 +1,1 @@
+# StratacSec-DEV-Teste
