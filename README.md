@@ -47,6 +47,14 @@ O backend estará acessível em:
 O frontend estará disponível em:
 👉 http://localhost:4200/
 
+## Teste de Backend
+
+É possível realizar testes na api através em:
+    http://127.0.0.1:8000/api/
+
+Ou utilizar o insomi, esse é um exemplo de GET Alunos:
+![teste](testeInsomnia.png)
+
 
 ## Dificuldades
 
