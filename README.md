@@ -13,7 +13,7 @@
 ## Configuração do Backend (Django)
 
 ### Clonar o projeto
-```bash
+
 git clone https://github.com/seu-repositorio/gestao_salas.git
 cd gestao_salas
 
@@ -33,7 +33,7 @@ O backend estará acessível em:
 ---
 
 ## Configuração do Frontend (Angular)
-```bash
+
 ### entrar na pasta frontend
 cd frontend
 
