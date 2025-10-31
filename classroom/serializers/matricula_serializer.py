@@ -9,6 +9,7 @@ class MatriculaSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         aluno = data.get('aluno')
-        if Matricula.objects.filter(aluno=aluno).exists():
+        turma = data.get('turma')
+        if Matricula.objects.filter(aluno=aluno, turma=turma).exists():
             raise serializers.ValidationError("O aluno já está matriculado nesta turma.")
         return data

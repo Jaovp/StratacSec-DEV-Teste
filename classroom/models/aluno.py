@@ -1,13 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import RegexValidator, EmailValidator
+from django.contrib.auth.models import AbstractUser
 
-class Aluno(models.Model):
-    nome: str = models.CharField(max_length=100)
-    email: str = models.EmailField(
-        unique=True,
-        validators=[EmailValidator(message="Insira um endereço de email válido.")]
-    )
-    telefone: str = models.CharField(
+class Aluno(AbstractUser):
+    # O AbstractUser já fornece: username, first_name, last_name, email, password, etc.
+    
+    telefone = models.CharField(
         max_length=15,
         blank=True,
         validators=[RegexValidator(
@@ -16,13 +15,17 @@ class Aluno(models.Model):
         )],
     )
 
-    created_at: models.DateTimeField = models.DateTimeField(auto_now_add=True)
-    updated_at: models.DateTimeField = models.DateTimeField(auto_now=True)
+    email = models.EmailField(
+        unique=True,
+        max_length=254,
+        validators=[EmailValidator(message="Insira um endereço de email válido.")],
+    )
+    
 
     class Meta:
-        verbose_name = "Aluno"
-        verbose_name_plural = "Alunos"
-        ordering = ['nome']
+        verbose_name = "Usuário (Aluno)"
+        verbose_name_plural = "Usuários (Alunos)"
+        ordering = ['first_name']
 
     def __str__(self) -> str:
-        return f"{self.nome} ({self.email})"
+        return f"{self.first_name} ({self.email})"

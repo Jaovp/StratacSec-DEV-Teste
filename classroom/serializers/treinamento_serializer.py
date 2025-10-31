@@ -11,4 +11,6 @@ class TreinamentoSerializer(serializers.ModelSerializer):
     def validate_nome(self, value: str) -> str:
         if not value.strip():
             raise serializers.ValidationError("O nome do treinamento não pode estar vazio.")
-        return value
+        if Treinamento.objects.filter(nome__iexact=value.strip()).exists():
+            raise serializers.ValidationError("Já existe um treinamento com esse nome.")
+        return value.strip()

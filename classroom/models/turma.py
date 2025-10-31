@@ -5,7 +5,7 @@ class Turma(models.Model):
     treinamento: Treinamento = models.ForeignKey(
         Treinamento,
         on_delete=models.CASCADE,
-        related_name='turmas'
+        related_name='turmas',
     )
 
     nome: str = models.CharField(max_length=100)
@@ -20,6 +20,7 @@ class Turma(models.Model):
         verbose_name = "Turma"
         verbose_name_plural = "Turmas"
         ordering = ['data_inicio','nome']
+        unique_together = ('treinamento', 'nome')  # nome único por treinamento
 
     def __str__(self) -> str:
         return f"{self.nome} - {self.treinamento.nome}"

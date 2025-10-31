@@ -1,7 +1,7 @@
 from django.db import models
 
 class Treinamento(models.Model):
-    nome: str = models.CharField(max_length=100)
+    nome: str = models.CharField(max_length=100, unique=True)
     descricao: str = models.TextField()
 
     created_at: models.DateTimeField = models.DateTimeField(auto_now_add=True)
