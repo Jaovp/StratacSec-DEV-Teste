@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="header-actions">
+    <h2>Treinamentos Disponíveis</h2>
+    <button class="btn btn-primary btn-sm" (click)="abrirModal()">Cadastrar Treinamento</button>
+  </div>
+
+
+  <div *ngIf="loading">Carregando...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let t of treinamentos">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ t.nome }}</h5>
+          <p class="card-text">{{ t.descricao }}</p>
+          <button class="btn btn-primary btn-sm" (click)="abrirTurmas(t.id)">
+            Ver Turmas
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3 class="text-lg font-bold mb-4">Cadastrar Treinamento</h3>
+
+    <form (ngSubmit)="salvar()">
+      <label class="block mb-2">
+        Nome:
+        <input type="text" [(ngModel)]="novoTreinamento.nome" name="nome"
+               class="border p-2 w-full rounded" required />
+      </label>
+
+      <label class="block mb-4">
+        Descrição:
+        <textarea [(ngModel)]="novoTreinamento.descricao" name="descricao"
+                  class="border p-2 w-full rounded"></textarea>
+      </label>
+
+      <div class="flex justify-end space-x-2">
+        <button type="button" class="px-4 py-2 bg-gray-300 rounded" (click)="fecharModal()">Cancelar</button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>

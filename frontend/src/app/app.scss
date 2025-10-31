@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+
+    .nav-btn {
+      background: rgb(233, 140, 140);
+      color: #fffdfd;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: #811a1a;
+      }
+
+      &.active {
+        background: #811a1a;
+        color: white;
+      }
+    }
+  }
+}
+
+.main {
+  padding: 1.5rem;
+}

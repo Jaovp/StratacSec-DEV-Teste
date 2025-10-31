@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="header-actions">
+    <h2 class="mb-3">Recursos da Turma: {{ turmaNome }}</h2>
+    <button (click)="abrirModal()">Cadastrar Recurso</button>
+  </div>
+
+  <div *ngIf="loading">Carregando...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let r of recursos">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ r.nome }}</h5>
+          <p class="card-text">{{ r.descricao }}</p>
+          <p class="card-text"><strong>Tipo:</strong> {{ r.tipo_recurso }}</p>
+          <a *ngIf="r.url" [href]="r.url" target="_blank" class="btn btn-primary btn-sm">
+            Acessar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-content">
+    <h3>Cadastrar Recurso</h3>
+
+    <label>Nome:</label>
+    <input type="text" [(ngModel)]="novoRecurso.nome" />
+
+    <label>Tipo:</label>
+    <select [(ngModel)]="novoRecurso.tipo_recurso">
+      <option *ngFor="let tipo of tiposRecurso" [value]="tipo.value">{{ tipo.label }}</option>
+    </select>
+
+    <label>Descrição:</label>
+    <textarea [(ngModel)]="novoRecurso.descricao"></textarea>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="novoRecurso.acesso_previo" />
+      Acesso prévio
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="novoRecurso.draft" />
+      Rascunho
+    </label>
+
+    <div class="modal-actions">
+      <button (click)="fecharModal()">Cancelar</button>
+      <button (click)="salvarRecurso()">Salvar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="all">
+  <div class="login-container">
+    <h2>Login</h2>
+    <input [(ngModel)]="username" placeholder="Usuário" />
+    <input [(ngModel)]="password" type="password" placeholder="Senha" />
+    <button (click)="onLogin()">Entrar</button>
+
+    <p *ngIf="error" style="color:red;">{{ error }}</p>
+  </div>
+
+</div>

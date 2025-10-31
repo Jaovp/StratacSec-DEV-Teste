@@ -1,0 +1,61 @@
+<div class="container mt-4">
+  <div class="header-actions">
+    <h2 class="mb-3">Turmas do treinamento {{ treinamentoNome }}</h2>
+    <button class="btn btn-primary btn-sm" (click)="abrirModal()">Cadastrar Turma</button>
+  </div>
+
+
+  <div *ngIf="loading">Carregando...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let turma of turmas">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ turma.nome }}</h5>
+          <p class="card-text">
+            Início: {{ turma.data_inicio }} <br />
+            Conclusão: {{ turma.data_conclusao }}
+          </p>
+          <button class="btn btn-primary btn-sm" (click)="abrirRecursos(turma.id)">
+            Ver Recursos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 class="text-lg font-bold mb-4">Cadastrar Turma</h3>
+
+      <form (ngSubmit)="salvarTurma()">
+        <label class="block mb-2">
+          Nome:
+          <input type="text" [(ngModel)]="novaTurma.nome" name="nome" required class="border p-2 w-full rounded" />
+        </label>
+
+        <label class="block mb-2">
+          Data de Início:
+          <input type="date" [(ngModel)]="novaTurma.data_inicio" name="data_inicio" required class="border p-2 w-full rounded" />
+        </label>
+
+        <label class="block mb-2">
+          Data de Conclusão:
+          <input type="date" [(ngModel)]="novaTurma.data_conclusao" name="data_conclusao" required class="border p-2 w-full rounded" />
+        </label>
+
+        <label class="block mb-2">
+          Link de Acesso:
+          <input type="text" [(ngModel)]="novaTurma.link_acesso" name="link_acesso" required class="border p-2 w-full rounded" />
+        </label>
+
+        <div class="flex justify-end space-x-2">
+          <button type="button" (click)="fecharModal()" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
+          <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
