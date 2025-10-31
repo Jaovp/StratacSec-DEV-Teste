@@ -14,19 +14,19 @@
 
 ### Clonar o projeto
 
-git clone https://github.com/seu-repositorio/gestao_salas.git
+- git clone https://github.com/seu-repositorio/gestao_salas.git
 
-cd gestao_salas
+- cd gestao_salas
 
 ### Aplicar migrações
-python manage.py makemigrations
-python manage.py migrate
+- python manage.py makemigrations
+- python manage.py migrate
 
 ### Criar Super Usuario
-python manage.py createsuperuser
+- python manage.py createsuperuser
 
 ### Rodar Servidor
-python manage.py runserver
+- python manage.py runserver
 
 O backend estará acessível em:
 👉 http://127.0.0.1:8000/api/
@@ -36,13 +36,13 @@ O backend estará acessível em:
 ## Configuração do Frontend (Angular)
 
 ### entrar na pasta frontend
-cd frontend
+- cd frontend
 
 ### instalar dependências
-npm install
+- npm install
 
 ### rodar o servidor
-ng serve
+- ng serve
 
 O frontend estará disponível em:
 👉 http://localhost:4200/
