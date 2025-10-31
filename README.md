@@ -50,6 +50,6 @@ O frontend estará disponível em:
 
 ## Dificuldades
 
-Durante o desenvolvimento, enfrentei dificuldades com a implementação da autenticação por token e a autorização de usuários no frontend. Por conta disso, a funcionalidade completa de controle de acesso ainda não foi totalmente implementada e isso influenciou as restrições do Aluno. Acredito que uma possível solução é capturar o campo isAdmin e usar um Interceptor do token, porém, ainda não consegui. Após isso, será possível colocar em prática as permissões e implementar corretamente a matrícula para associar o aluno à turma (no backend isso já funciona).
+Durante o desenvolvimento, enfrentei dificuldades com a implementação da autenticação por token e a autorização de usuários no frontend. Por conta disso, a funcionalidade completa de controle de acesso ainda não foi totalmente implementada e isso influenciou as restrições do Aluno. Acredito que uma possível solução é capturar o campo isAdmin e usar um Interceptor do token, porém, ainda não consegui. Após isso, será possível colocar em prática as permissões e implementar corretamente a matrícula para associar o aluno à turma (no backend isso já funciona) e os recursos.
 
 A principal dificuldade está na parte de lógica do frontend, pois ainda não tenho muita experiência com Angular."
