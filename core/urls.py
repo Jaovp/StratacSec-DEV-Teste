@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken import views as drf_auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('classroom.urls')), # Rotas da API
+    path('api/token/', drf_auth.obtain_auth_token, name='api_token_auth'),
 ]
