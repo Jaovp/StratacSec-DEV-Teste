@@ -30,9 +30,10 @@ python manage.py runserver
 O backend estará acessível em:
 👉 http://127.0.0.1:8000/api/
 
+---
 
 ## Configuração do Frontend (Angular)
-
+```bash
 ### entrar na pasta frontend
 cd frontend
 
