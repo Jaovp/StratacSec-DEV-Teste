@@ -4,7 +4,6 @@ from django.core.validators import RegexValidator, EmailValidator
 from django.contrib.auth.models import AbstractUser
 
 class Aluno(AbstractUser):
-    # O AbstractUser já fornece: username, first_name, last_name, email, password, etc.
     
     telefone = models.CharField(
         max_length=15,
